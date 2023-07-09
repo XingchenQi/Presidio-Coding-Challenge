@@ -12,8 +12,8 @@
 * I used DuckDuckGo for gathering info as it is a privacy-focused search engine that doesn’t save search history or track your online activities. It will be a neutual platform to gather information on Google, Bing and Yahoo without commercials or personal recommandation features.
 * Google SerpApi is introduced to generate related questions regarding the topic. (Sometimes this API is slow so it might take a while to generate related questions)
 * Both of them have packages in Python and simple to set up which is why I chose it in this program.
-* Added ```:history ``` function to browse search history.
-* Added ```:quit ``` function to quit program.
+* Added ```:history``` function to browse search history.
+* Added ```:quit``` function to quit program.
 * After the code implementation, I used pylint library to check code quality and see if it's following the Python's best practices.
 
 ## Enviroment 
@@ -25,7 +25,7 @@
     source venv/bin/activate
     pip3 install -r requirements.txt
 ```
-* Get an API key from https://serpapi.com/ and change the value of ```API_KEY ``` in config file
+* Get an API key from https://serpapi.com/ and change the value of ```API_KEY``` in config file
 
 
 ## File structure
@@ -49,7 +49,6 @@
     
     # get related questions and answers from Google
     quick_search.get_related_questions()
-
 
 ```
 

@@ -77,7 +77,7 @@ class QuickSearchService:
         @return
         """
         if not os.path.isfile('search.history'):
-            print(f'{gl.colors.FAIL}No History Found.{gl.colors.ENDC}')
+            print(f'\t{gl.colors.FAIL}No History Found. Press any key to quit.{gl.colors.ENDC}')
             input()
             sys.exit()
         try:
@@ -90,7 +90,7 @@ class QuickSearchService:
                     index += 1
                 print(f'{gl.colors.ENDC}')
         except OSError:
-            print(f'{gl.colors.FAIL}Get History Failed.{gl.colors.ENDC}')
+            print(f'\t{gl.colors.FAIL}Get History Failed. Press any key to quit.{gl.colors.ENDC}')
             traceback.print_exc()
             input()
             sys.exit()
@@ -111,7 +111,9 @@ class QuickSearchService:
 
             return self._print_search_info(search_time,duck_results)
         except Exception:  # pylint: disable=W0718
-            print(f'{gl.colors.FAIL}No results available when searching info.{gl.colors.ENDC}')
+            print(
+                f'\t{gl.colors.FAIL}No results available when searching info. '
+                f'Press any key to quit.{gl.colors.ENDC}')
             traceback.print_exc()
             input()
             sys.exit()
@@ -135,16 +137,17 @@ class QuickSearchService:
                 print('')
                 return print(
                             f'\t{gl.colors.FAIL}'
-                            f'No related questions available when searching the info.'
+                            f'No related questions available when searching the info. '
+                            f'Press any key to quit.'
                             f'{gl.colors.ENDC}')
             return self._print_related_questions(g_results["related_questions"])
         except RuntimeError as exp:
-            print(f'{gl.colors.FAIL}{exp}{gl.colors.ENDC}')
+            print(f'\t{gl.colors.FAIL}{exp}{gl.colors.ENDC}')
             traceback.print_exc()
             input()
             sys.exit()
         except Exception:  # pylint: disable=W0718
-            print(f'{gl.colors.FAIL}Failed to get related questions.{gl.colors.ENDC}')
+            print(f'\t{gl.colors.FAIL}Failed to get related questions.{gl.colors.ENDC}')
             traceback.print_exc()
             input()
             sys.exit()
@@ -206,7 +209,9 @@ class QuickSearchService:
             with open('search.history', 'a', encoding='UTF-8') as history:
                 history.write(f'{self._topic}\n')
         except OSError:
-            print(f'{gl.colors.FAIL}Failed to write history in file.{gl.colors.ENDC}')
+            print(
+                f'\t{gl.colors.FAIL}Failed to write history in file. '
+                f'Press any key to quit.{gl.colors.ENDC}')
             traceback.print_exc()
             input()
             sys.exit()
@@ -221,7 +226,9 @@ class QuickSearchService:
                 conf = yaml.safe_load(file)
             return conf['API_KEY']
         except OSError:
-            print(f'{gl.colors.FAIL}Failed to get API Key.{gl.colors.ENDC}')
+            print(
+                f'\t{gl.colors.FAIL}Failed to get API Key. '
+                f'Press any key to quit.{gl.colors.ENDC}')
             traceback.print_exc()
             input()
             sys.exit()
@@ -243,7 +250,9 @@ if __name__ == "__main__":
         quick_search=QuickSearchService(query_search)
         quick_search.start_service()
     except Exception as e:  # pylint: disable=invalid-name W0718
-        print(f'{gl.colors.FAIL}Quick Search starting failed.{gl.colors.ENDC}')
+        print(
+            f'\t{gl.colors.FAIL}Quick Search starting failed. '
+            f'Press any key to quit.{gl.colors.ENDC}')
         traceback.print_exc()
         garbage = input()
         sys.exit()
