@@ -68,4 +68,15 @@
 * around 6 hrs
 
 ## Examples
+Quick Search Terminal with topic "coffee"<br />
+<br />
+![](src/images/Qsearch.png)
+
+Related questions and answers<br />
+<br />
+![](src/images/related-questions-answers.png)
+
+History Page Terminal<br />
+<br />
+![](src/images/history.png)
 
