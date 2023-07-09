@@ -14,6 +14,7 @@ import sys
 import traceback
 import time
 import platform
+import os
 import yaml
 from duckpy import Client
 from serpapi import GoogleSearch
@@ -75,6 +76,10 @@ class QuickSearchService:
         This function is to query search history file and print out
         @return
         """
+        if not os.path.isfile('search.history'):
+            print(f'{gl.colors.FAIL}No History Found.{gl.colors.ENDC}')
+            input()
+            sys.exit()
         try:
             with open('search.history', 'r', encoding='UTF-8') as history:
                 print(f'\t{gl.colors.FAIL}Search history:\n{gl.colors.ENDC}')
